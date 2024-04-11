@@ -42,9 +42,7 @@ pyautogui.hotkey("tab") #11
 pyautogui.hotkey("tab") #12
 pyautogui.hotkey("enter")
 
-#pyautogui.click(x=196, y=201)
-
-pyperclip.copy("marcelojtelles@gmail.com")
+pyperclip.copy("exemple@gmail.com")
 pyautogui.hotkey("ctrl","v")
 pyautogui.hotkey("tab")
 
