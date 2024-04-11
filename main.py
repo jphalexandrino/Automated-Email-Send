@@ -6,20 +6,20 @@ import time
 
 yf.Ticker("MSFT").history("5d")
 
-ticker = input("Qual ação você quer acompanhar: ")
-dados = yf.Ticker(ticker).history("6mo")
-fechamento = dados.Close
-fechamento.plot()
+ticker = input("Which stock do you want to track: ")
+data = yf.Ticker(ticker).history("6mo")
+closing_prices = data.Close
+closing_prices.plot()
 
-maxima = round(fechamento.max(), 2)
-minima = round(fechamento.min(), 2)
-atual = round(fechamento[-1], 2)
+maximum = round(closing_prices.max(), 2)
+minimum = round(closing_prices.min(), 2)
+current = round(closing_prices[-1], 2)
 
-print(maxima)
-print(minima)
-print(atual)
+print(maximum)
+print(minimum)
+print(current)
 
-pyautogui.PAUSE = 2 # tempo entre uma ação e outra (delay)
+pyautogui.PAUSE = 2 # time between actions (delay)
 
 pyautogui.hotkey("win", "d")
 pyautogui.hotkey("win", "1")
@@ -42,46 +42,38 @@ pyautogui.hotkey("tab") #11
 pyautogui.hotkey("tab") #12
 pyautogui.hotkey("enter")
 
-pyperclip.copy("exemple@gmail.com")
+pyperclip.copy("example@gmail.com")
 pyautogui.hotkey("ctrl","v")
 pyautogui.hotkey("tab")
 
-pyperclip.copy("Análises diárias")
+pyperclip.copy("Daily Analysis")
 pyautogui.hotkey("ctrl", "v")
 pyautogui.hotkey("tab")
 
-# Cria a mensagem formatada
-mensagem = f"""
-    Prezado gestor,
+# Create formatted message
+message = f"""
+    Dear manager,
 
-    Seguem, conforme solicitado, as análises dos últimos seis meses da ação {ticker}.
+    Following your request, here are the analyses of the last six months for the {ticker} stock.
 
-    Cotação máxima: R$ {maxima}
-    Cotação mínima: R$ {minima}
-    Cotação atual: R$ {atual}
+    Maximum price: $ {maximum}
+    Minimum price: $ {minimum}
+    Current price: $ {current}
 
-    Qualquer dúvida, fico à disposição!
+    If you have any questions, feel free to ask!
 
-    Atte,
-    Assinatura: João Pedro Hack 
+    Regards,
+    Signature: João Pedro Hack 
 """
 
-# Copia a mensagem para a área de transferência
-pyperclip.copy(mensagem)
+# Copy message to clipboard
+pyperclip.copy(message)
 
 pyautogui.hotkey("ctrl", "v")
 pyautogui.hotkey("ctrl", "enter")
 
-    
-print("E-mail enviado com sucesso!")
+print("Email sent successfully!")
 
-# comando para pegar a posição do mouse com delay de 5 segundos
+# command to get mouse position with 5 seconds delay
 time.sleep(5)
 pyautogui.position()
-
-'''
-%pip install yfinance
-%pip install matplotlib
-%pip install pyautogui
-%pip install pyperclip
-'''
