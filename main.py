@@ -73,7 +73,3 @@ pyautogui.hotkey("ctrl", "v")
 pyautogui.hotkey("ctrl", "enter")
 
 print("Email sent successfully!")
-
-# command to get mouse position with 5 seconds delay
-time.sleep(5)
-pyautogui.position()
